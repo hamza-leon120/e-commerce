@@ -1,0 +1,242 @@
+@mixin medai ($point) {
+    @if $point ==mobail {
+        @media (max-width : 767px) {
+            @content;
+        }
+    }
+
+    @else if $point ==small {
+        @media (min-width : 768px) {
+            @content;
+        }
+    }
+
+    @else if $point ==max-medium {
+        @media (max-width : 992px) {
+            @content;
+        }
+    }
+
+    @else if $point ==medium {
+        @media (min-width : 992px) {
+            @content;
+        }
+    }
+
+    @else if $point ==max-large {
+        @media (max-width : 1200px) {
+            @content;
+        }
+    }
+
+    @else if $point ==large {
+        @media (min-width : 1200px) {
+            @content;
+        }
+    }
+}
+
+@mixin button($w, $h, $back, $c) {
+    width: $w;
+    height: $h;
+    background-color: $back;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+
+    p {
+        color: $c;
+
+        font: {
+            size: 16px;
+            weight: 600;
+        }
+    }
+}
+
+.section-title {
+    color: #333333;
+    margin-bottom: 73px;
+
+    font: {
+        size: 32px;
+        weight: 600;
+    }
+
+    @include medai(mobail) {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+}
+
+.arrows {
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    width: 97%;
+
+    div {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        @include medai(mobail) {
+            width: 30px;
+            height: 30px;
+        }
+
+        svg {
+            color: #09B451;
+            font-size: 15px;
+        }
+    }
+}
+
+.courses {
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 20px 0 #CBCBCB;
+
+    &:nth-child(2) {
+        @include medai(mobail) {
+            .title {
+                font-size: 10px !important;
+            }
+        }
+    }
+
+    img {
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+        height: 215px;
+
+        @include medai(mobail) {
+            height: 103px;
+        }
+    }
+
+    .parent {
+        padding: 32px 23px 32px 23px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 46%;
+
+        @include medai(mobail) {
+            position: relative;
+            padding: 7px 9px 4px 9px;
+        }
+
+        div {
+            &:nth-child(1) {
+                display: flex;
+                align-items: center;
+
+                .title {
+                    margin-right: 33px;
+                    color: #333333;
+
+                    font: {
+                        size: 24px;
+                        weight: 500;
+                    }
+
+                    @include medai(max-large) {
+                        font-size: 18px;
+                    }
+
+                    @include medai(mobail) {
+                        font-size: 12px;
+                        margin-right: 10px;
+                    }
+                }
+
+                div {
+                    display: flex;
+
+                    svg {
+                        font-size: 18px;
+                        color: #09B451;
+                        margin-right: 8px;
+
+                        @include medai(mobail) {
+                            font-size: 8px;
+                        }
+                    }
+
+                    .star {
+                        font-size: 16px;
+                        color: #000000;
+
+                        @include medai(mobail) {
+                            font-size: 8px;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                p {
+                    color: #333333;
+
+                    font: {
+                        size: 14px;
+                        weight: 500;
+                    }
+
+                    @include medai(mobail) {
+                        font-size: 10px;
+                    }
+                }
+
+                div {
+                    svg {
+                        margin-right: 5px;
+                        font-size: 16px;
+                        color: #09B451;
+
+                        @include medai(mobail) {
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                .price {
+                    color: #09B451;
+
+                    font: {
+                        size: 24px;
+                        weight: 600;
+                    }
+
+                    @include medai(mobail) {
+                        font-size: 14px;
+                        position: absolute;
+                        bottom: 26px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
