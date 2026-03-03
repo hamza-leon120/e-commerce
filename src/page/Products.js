@@ -1,16 +1,8 @@
 import { faStar } from "@fortawesome/free-regular-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 function Products (prop){
-    let [products,setProducts] = useState([])
-    
-    useEffect(function(){
-        fetch("https://fakestoreapi.com/products")
-        .then(function(e){return e.json()})
-        .then(function(e){return setProducts(e)})
-    },[])
-    let productsJsx = products.map(function(ele){
+    let productsJsx = prop.products.map(function(ele){
         return (
             <div className="product" key={ele.id}>
                 <Link to = {`/product/${ele.id}`}>                
@@ -36,11 +28,15 @@ function Products (prop){
                 </Link>
                 <div className="add-button" onClick={
                     function(){
-                        prop.setData(function(prv){
-                            let newArr = [...prv]
-                            newArr.push(ele)
-                            return newArr
-                        })
+                        if (prop.data.includes(ele)){
+                            ele.repetition = ele.repetition  + 1
+                        }else {
+                            prop.setData(function(prv){
+                                let newArr = [...prv]
+                                newArr.push(ele)
+                                return newArr
+                            })
+                        }
                     }
                 }>
                     <p>add to cart</p>

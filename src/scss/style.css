@@ -385,9 +385,31 @@ h1 {
   font-size: 24px;
   font-weight: bold;
 }
-.cart .container .print .left .product svg {
+.cart .container .print .left .product .two {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cart .container .print .left .product .two svg {
+  align-self: flex-end;
   font-size: 24px;
   color: #FF3333;
+  cursor: pointer;
+}
+.cart .container .print .left .product .two .repetition {
+  width: 126px;
+  height: 44px;
+  background-color: #F0F0F0;
+  border-radius: 62px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cart .container .print .left .product .two .repetition p {
+  font-size: 25px;
+  font-weight: 500;
+}
+.cart .container .print .left .product .two .repetition p.click {
   cursor: pointer;
 }
 .cart .container .print .left hr {

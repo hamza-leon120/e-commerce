@@ -5,10 +5,10 @@ import { Link } from "react-router-dom"
 function Cart(prop) {
     let total = 0
     let prodactInCartJsx = prop.data.map(function (ele, index) {
-        total = total + ele.price
+        total = total + (ele.price * ele.repetition)
         return (
-            <>
-                <div className="product" key={ele.id}>
+            <div key={ele.id}>
+                <div className="product">
                     <Link to={`/product/${ele.id}`}>
                         <div className="one">
                             <div className="img">
@@ -21,18 +21,53 @@ function Cart(prop) {
                             </div>
                         </div>
                     </Link>
-                    <FontAwesomeIcon icon={faTrashCan} onClick={
-                        function () {
-                            prop.setData(function (prv) {
-                                let newArr = [...prv]
-                                newArr.splice(index, 1)
-                                return newArr
-                            })
-                        }
-                    } />
+                    <div className="two">
+                        <FontAwesomeIcon icon={faTrashCan} onClick={
+                            function () {
+                                prop.setData(function (prv) {
+                                    let newArr = [...prv]
+                                    newArr.splice(index, 1)
+                                    return newArr
+                                })
+                            }
+                        } />
+                        <div className="repetition">
+                            <p className="click" onClick={
+                                function () {
+                                    if (ele.repetition > 1) {
+                                        prop.setData(function (prv) {
+                                            let newArr = [...prv]
+                                            Object.assign(newArr[index], {
+                                                repetition: newArr[index].repetition - 1
+                                            })
+                                            return newArr
+                                        })
+                                    } else if (ele.repetition <= 1) {
+                                        prop.setData(function (prv) {
+                                            let newArr = [...prv]
+                                            newArr.splice(index, 1)
+                                            return newArr
+                                        })
+                                    }
+                                }
+                            }>-</p>
+                            <p>{ele.repetition}</p>
+                            <p className="click" onClick={
+                                function () {
+                                    prop.setData(function (prv) {
+                                        let newArr = [...prv]
+                                        Object.assign(newArr[index], {
+                                            repetition: newArr[index].repetition + 1
+                                        })
+                                        return newArr
+                                    })
+                                }
+                            }>+</p>
+                        </div>
+                    </div>
                 </div>
                 <hr />
-            </>
+            </div>
         )
     })
     return (

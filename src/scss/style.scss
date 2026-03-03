@@ -200,10 +200,34 @@ h1 {
                             }
                         }
                     }
-                    svg {
-                        font-size: 24px;
-                        color: #FF3333;
-                        cursor: pointer;
+                    .two {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        svg {
+                            align-self: flex-end;
+                            font-size: 24px;
+                            color: #FF3333;
+                            cursor: pointer;
+                        }
+                        .repetition {
+                            width: 126px;
+                            height: 44px;
+                            background-color: #F0F0F0;
+                            border-radius: 62px;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            p {
+                                font: {
+                                    size: 25px;
+                                    weight: 500;
+                                }
+                                &.click {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
                     }
                 }
                 hr {
