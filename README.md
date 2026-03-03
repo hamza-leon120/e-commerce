@@ -8,6 +8,19 @@
 
 ---
 
+## 📸 Preview
+
+### 📦 products
+![products Preview](./Screenshotpng.png)
+
+### 📦 product
+![product Preview](./productScreenshot.png)
+
+### 🛒 cart
+![cart Preview](./cartScreenshot.png)
+
+---
+
 ## 🚀 Live Demo
 
 👉 [https://hamza-leon120.github.io/e-commerce/](https://hamza-leon120.github.io/e-commerce/)
