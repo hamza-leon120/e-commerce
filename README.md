@@ -137,7 +137,7 @@ GET https://fakestoreapi.com/products
 
 ## 📄 License
 
-This project is open source and available for use and reference.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
